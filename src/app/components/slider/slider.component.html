@@ -1,5 +1,5 @@
 <div class="slider">
-  <<ng-container *ngFor="let item of items; let i = index">
+  <ng-container *ngFor="let item of items; let i = index">
     <div class="slide" *ngIf="i == currentSlideIndex" @slideFade>
       <div class="slide-bg">
         <img
@@ -18,7 +18,7 @@
               ><span>/10</span>
             </span>
             <span>{{ item.vote_count }}</span>
-            <span>{{ item.release_date | date : "yyyy" }}</span>
+            <span>{{ item.release_date }}</span>
           </div>
         </div>
         <div class="desc mt-6">

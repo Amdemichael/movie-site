@@ -9,7 +9,7 @@ import {
 } from '@angular/animations';
 
 @Component({
-  selector: 'app-slider',
+  selector: 'slider',
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.scss'],
   animations: [
@@ -22,12 +22,15 @@ import {
 export class SliderComponent implements OnInit {
   constructor() {}
   @Input() items: Movie[] = [];
+  @Input() isBanner: boolean = false;
 
   currentSlideIndex: number = 0;
 
   ngOnInit(): void {
-    setInterval(() => {
-      this.currentSlideIndex = ++this.currentSlideIndex % this.items.length;
-    }, 5000);
+    if (!this.isBanner) {
+      setInterval(() => {
+        this.currentSlideIndex = ++this.currentSlideIndex % this.items.length;
+      }, 5000);
+    }
   }
 }
